@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next muse use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -150,7 +150,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -200,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -210,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -253,10 +253,10 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://jes2ica.github.io/2017/07/05/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://jes2ica.github.io/2017/07/05/reservoir- sampling/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="Yijie Zhuang">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
@@ -272,7 +272,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/05/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2017/07/05/reservoir- sampling/" itemprop="url">Reservoir Sampling</a></h1>
         
 
         <div class="post-meta">
@@ -282,7 +282,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-05T09:54:11-07:00">
                 2017-07-05
@@ -321,15 +321,47 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <p>Reservoir sampling is a family of randomized algorithms for randomly choosing a sample of k items from a list S containing n items, where n is either a very large or unknown number. Typically n is large enough that the list doesn’t fit into main memory.</p>
+<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>Choose k entries from n numbers. Make sure each number is selected with the probability of k/n</p>
+<h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h2><ul>
+<li>Choose k items and put them into the reservoir.</li>
+<li>For (k+1)th item, pick it with probability k/(k+1), and randomly replace a number in the reservoir.</li>
+<li>For (k+i)th item, pick it with probability k/(k+i), and randomly replace a number in the reservoir.</li>
+<li>Repeat until k+i reaches n.</li>
+</ul>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="Sample-size-1"><a href="#Sample-size-1" class="headerlink" title="Sample size 1"></a>Sample size 1</h3><ul>
+<li><p>Choose 1 from [1, 2, 3, 4] =&gt; initial reservoir: [1]</p>
+</li>
+<li><p>For 2:</p>
+<ul>
+<li>with probability 1/2, keep it (discard the old one aka 1)</li>
+<li>with probability 1 - 1/2 = 1/2, keep the old item (ignore the new one)</li>
+<li>For 1, the probability that it keeps staying in the reservoir is:</li>
+<li>P(1 was in the reservoir last time) * P(1 is not replaced by 2)<ul>
+<li>= 1 * (1 - 1/2 * 1)</li>
+<li>= 1/2</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>For 3:</p>
+<ul>
+<li>For 1, the probability that it keeps staying in the reservoir is:</li>
+<li>P(1 was in the reservoir last time) * P(1 is not replaced by 3)</li>
+<li>P(1 was in the reservoir last time) * (1 - P(3 is selected and replaces 1))</li>
+<li>= 1/2 * (1 - 1/3 * 1)</li>
+<li>= 1/2 * 2/3</li>
+<li>= 1/3</li>
+</ul>
+</li>
+<li><p>Same for 4</p>
+</li>
+</ul>
+<p>More info:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Reservoir_sampling" target="_blank" rel="external">Wiki</a></li>
+<li><a href="https://discuss.leetcode.com/topic/53753/brief-explanation-for-reservoir-sampling" target="_blank" rel="external">Leetcode</a></li>
+</ul>
 
           
         
@@ -398,8 +430,8 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
-               alt="John Doe" />
-          <p class="site-author-name" itemprop="name">John Doe</p>
+               alt="Yijie Zhuang" />
+          <p class="site-author-name" itemprop="name">Yijie Zhuang</p>
            
               <p class="site-description motion-element" itemprop="description"></p>
           
@@ -410,13 +442,22 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
 
           
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -459,12 +500,12 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">Yijie Zhuang</span>
 </div>
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
