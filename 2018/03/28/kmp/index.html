@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="leetcode,dynamic programming," />
+  <meta name="keywords" content="string," />
 
 
 
@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="ProblemGiven an array of scores that are non-negative integers. Player 1 picks one of the numbers from either end of the array followed by the player 2 and then player 1 and so on. Each time a player">
-<meta name="keywords" content="leetcode,dynamic programming">
+<meta name="description" content="TL;DRIn a word, KMP records the suffix substring which is a prefix of the string with max length at position i. Preprocessing KMP algorithm does preproceses pattern[] and constructs an auxiliary lps[]">
+<meta name="keywords" content="string">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Predict the Winner">
-<meta property="og:url" content="http://jes2ica.github.io/2017/07/16/predict-the-winner/index.html">
+<meta property="og:title" content="Knuth–Morris–Pratt Algorithm">
+<meta property="og:url" content="http://jes2ica.github.io/2018/03/28/kmp/index.html">
 <meta property="og:site_name" content="Jes2ica.IO">
-<meta property="og:description" content="ProblemGiven an array of scores that are non-negative integers. Player 1 picks one of the numbers from either end of the array followed by the player 2 and then player 1 and so on. Each time a player">
-<meta property="og:updated_time" content="2018-03-29T03:08:45.629Z">
+<meta property="og:description" content="TL;DRIn a word, KMP records the suffix substring which is a prefix of the string with max length at position i. Preprocessing KMP algorithm does preproceses pattern[] and constructs an auxiliary lps[]">
+<meta property="og:updated_time" content="2018-03-29T04:31:09.595Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Predict the Winner">
-<meta name="twitter:description" content="ProblemGiven an array of scores that are non-negative integers. Player 1 picks one of the numbers from either end of the array followed by the player 2 and then player 1 and so on. Each time a player">
+<meta name="twitter:title" content="Knuth–Morris–Pratt Algorithm">
+<meta name="twitter:description" content="TL;DRIn a word, KMP records the suffix substring which is a prefix of the string with max length at position i. Preprocessing KMP algorithm does preproceses pattern[] and constructs an auxiliary lps[]">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://jes2ica.github.io/2017/07/16/predict-the-winner/"/>
+  <link rel="canonical" href="http://jes2ica.github.io/2018/03/28/kmp/"/>
 
 
 
 
 
-  <title>Predict the Winner | Jes2ica.IO</title>
+  <title>Knuth–Morris–Pratt Algorithm | Jes2ica.IO</title>
   
 
 
@@ -266,7 +266,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://jes2ica.github.io/2017/07/16/predict-the-winner/">
+    <link itemprop="mainEntityOfPage" href="http://jes2ica.github.io/2018/03/28/kmp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yijie Zhuang">
@@ -283,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Predict the Winner</h1>
+          <h1 class="post-title" itemprop="name headline">Knuth–Morris–Pratt Algorithm</h1>
         
 
         <div class="post-meta">
@@ -295,8 +295,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-16T16:07:21-07:00">
-                2017-07-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-28T20:05:50-07:00">
+                2018-03-28
               </time>
             
 
@@ -352,51 +352,19 @@
       
 
       
-        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>Given an array of scores that are non-negative integers. Player 1 picks one of the numbers from either end of the array followed by the player 2 and then player 1 and so on. Each time a player picks a number, that number will not be available for the next player. This continues until all the scores have been chosen. The player with the maximum score wins.</p>
-<p>Given an array of scores, predict whether player 1 is the winner. You can assume each player plays to maximize his score.</p>
-<h2 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h2><ul>
-<li>Idea<ul>
-<li>i == j -&gt; pick i</li>
-<li>i != j<ul>
-<li>pick i -&gt; let player2 pick in (i + 1 … j)</li>
-<li>pick j -&gt; let player2 pick in (i … j - 1)</li>
-<li>compare the values between these 2 options, find the max.</li>
+        <h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>In a word, KMP records the <code>suffix substring</code> which is a prefix of the string with max length at position i.</p>
+<h2 id="Preprocessing"><a href="#Preprocessing" class="headerlink" title="Preprocessing"></a>Preprocessing</h2><ul>
+<li>KMP algorithm does preproceses pattern[] and constructs an auxiliary <code>lps[]</code> of size m (same as size of pattern) which is used to skip characters while matching.</li>
+<li>name <code>lps</code> indicates <strong>longest proper prefix which is also suffix</strong>. <ul>
+<li>A proper prefix is prefix with whole string not allowed. </li>
+<li>For example, prefixes of “ABC” are “”, “A”, “AB” and “ABC”. Proper prefixes are “”, “A” and “AB”. Suffixes of the string are “”, “C”, “BC” and “ABC”.</li>
+<li>lps[i] = the longest proper prefix of pat[0..i] which is also a suffix of pat[0..i]. </li>
+<li>For the pattern “ababaca”, lps=[0, 0, 1, 2, 3, 0, 1].</li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p>Solution</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public boolean PredictTheWinner(int[] nums) &#123;</div><div class="line">    return predictHelper(nums, 0, nums.length - 1) &gt;= 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public int predictHelper(int[] nums, int left, int right) &#123;</div><div class="line">    if (left == right) &#123;</div><div class="line">        return nums[left];</div><div class="line">    &#125;</div><div class="line">    return Math.max(</div><div class="line">        nums[left] - predictHelper(nums, left + 1, right),</div><div class="line">        nums[right] - predictHelper(nums, left, right - 1));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>Analysis<br>Time complexity: O(2^n)<br>Space complexity: O(n)</p>
-</li>
-</ul>
-<h2 id="Memorization"><a href="#Memorization" class="headerlink" title="Memorization"></a>Memorization</h2><ul>
-<li>Idea<br>In the last approach, a lot of duplicate calls to predictHelper function will be made with the same set of arguments, since the same subarray could be obtained by following different paths in the search space. This redundancy can be removed by making use of memoization.</li>
-<li><p>Solution</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">public boolean PredictTheWinner(int[] nums) &#123;</div><div class="line">    Integer[][] cache = new Integer[nums.length][nums.length];</div><div class="line">    return predictHelper(nums, 0, nums.length - 1, cache) &gt;= 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public int predictHelper(int[] nums, int left, int right, Integer[][] cache) &#123;</div><div class="line">    if (left == right) &#123;</div><div class="line">        return nums[left];</div><div class="line">    &#125;</div><div class="line">    return cache[left][right] != null ?</div><div class="line">        cache[left][right] :</div><div class="line">        Math.max(</div><div class="line">            nums[left] - predictHelper(nums, left + 1, right, cache),</div><div class="line">            nums[right] - predictHelper(nums, left, right - 1, cache));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>Analysis<br>Time complexity: O(n^2)<br>Space complexity: O(n^2)</p>
-</li>
-</ul>
-<h2 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h2><ul>
-<li>Idea<ul>
-<li>dp[i][j]: maximum effective score possible for the subarray nums[i,j].</li>
-<li>dp[i][j] = Math.max((nums[i] - dp[i + 1][j]), nums[j] - dp[i][j - 1])</li>
-</ul>
-</li>
-<li><p>Solution</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line">    public boolean PredictTheWinner(int[] nums) &#123;</div><div class="line">        int[][] dp = new int[nums.length + 1][nums.length + 1];</div><div class="line">        for (int i = nums.length - 1; i &gt;= 0; i--) &#123;</div><div class="line">            for (int j = i + 1; j &lt; nums.length; j++) &#123;</div><div class="line">                dp[i][j] = Math.max(nums[i] - dp[i + 1][j], nums[j] - dp[i][j - 1]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return dp[0][nums.length - 1] &gt;= 0;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public boolean PredictTheWinnerOptimized(int[] nums) &#123;</div><div class="line">      int[] dp = new int[nums.length];</div><div class="line">      for (int i = nums.length - 1; i &gt;= 0; i--) &#123;</div><div class="line">          for (int j = i + 1; j &lt; nums.length; j++) &#123;</div><div class="line">              dp[j] = Math.max(nums[i] - dp[j], nums[j] - dp[j - 1]);</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      return dp[nums.length - 1] &gt;= 0;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>Analysis<br>Time complexity: O(n^2)<br>Space complexity: O(n^2) / O(n)</p>
-</li>
-</ul>
-<h2 id="More-info"><a href="#More-info" class="headerlink" title="More info"></a>More info</h2><ul>
-<li><a href="https://leetcode.com/problems/predict-the-winner/#/description" target="_blank" rel="external">Leetcode</a></li>
-<li><a href="https://www.topcoder.com/community/data-science/data-science-tutorials/dynamic-programming-from-novice-to-advanced/" target="_blank" rel="external">Topcoder</a></li>
-<li><a href="https://www.youtube.com/watch?v=Tw1k46ywN6E&amp;feature=youtu.be&amp;list=PLUl4u3cNGP6317WaSNfmCvGym2ucw3oGp&amp;t=3622" target="_blank" rel="external">MIT Dynamic Programming: Advanced DP</a></li>
-</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] computeLps(String pattern) &#123;</div><div class="line">	<span class="keyword">int</span> n = pattern.length();</div><div class="line">	<span class="keyword">int</span>[] lps = <span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</div><div class="line">		<span class="comment">// Start by assuming we're extending the previous LPS</span></div><div class="line">		<span class="keyword">int</span> j = lps[i - <span class="number">1</span>];</div><div class="line">		<span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; pattern.charAt(j) != pattern.charAt(i)) &#123;</div><div class="line">			j = lps[j - <span class="number">1</span>];</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span> (pattern.charAt(j) == pattern.charAt(i)) &#123;</div><div class="line">			lps[i] = j + <span class="number">1</span>;</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			lps[i] = <span class="number">0</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> lps;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(String pattern, String text)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span>[] lps = computeLps(pattern);</div><div class="line">	<span class="keyword">int</span> j = <span class="number">0</span>; <span class="comment">// Number of chars matched in pattern.</span></div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; text.length(); i++) &#123;</div><div class="line">		<span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; text.charAt(i) != pattern.charAt(j)) &#123;</div><div class="line">			<span class="comment">// Fall back in the pattern.</span></div><div class="line">			j = lps[j - <span class="number">1</span>]; <span class="comment">// Strickly decreasing.</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span> (text.charAt(i) == pattern.charAt(j)) &#123;</div><div class="line">			<span class="comment">// Next char matched, increment position.</span></div><div class="line">			j++;</div><div class="line">			<span class="keyword">if</span> (j == pattern.length()) &#123;</div><div class="line">				<span class="keyword">return</span> i - (j - <span class="number">1</span>);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> -<span class="number">1</span>; <span class="comment">// Not found.</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -426,9 +394,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
-          
-            <a href="/tags/dynamic-programming/" rel="tag"># dynamic programming</a>
+            <a href="/tags/string/" rel="tag"># string</a>
           
         </div>
       
@@ -441,8 +407,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/05/binary-indexed-trees/" rel="next" title="Binary Indexed Trees">
-                <i class="fa fa-chevron-left"></i> Binary Indexed Trees
+              <a href="/2018/01/04/2018-plan/" rel="next" title="Hello 2018">
+                <i class="fa fa-chevron-left"></i> Hello 2018
               </a>
             
           </div>
@@ -450,10 +416,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/09/binary-search/" rel="prev" title="Binary Search">
-                Binary Search <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -582,7 +544,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem"><span class="nav-number">1.</span> <span class="nav-text">Problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recursion"><span class="nav-number">2.</span> <span class="nav-text">Recursion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memorization"><span class="nav-number">3.</span> <span class="nav-text">Memorization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DP"><span class="nav-number">4.</span> <span class="nav-text">DP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#More-info"><span class="nav-number">5.</span> <span class="nav-text">More info</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TL-DR"><span class="nav-number">1.</span> <span class="nav-text">TL;DR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Preprocessing"><span class="nav-number">2.</span> <span class="nav-text">Preprocessing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search"><span class="nav-number">3.</span> <span class="nav-text">Search</span></a></li></ol></div>
             
 
           </div>
