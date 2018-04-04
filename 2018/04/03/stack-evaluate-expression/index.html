@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="string," />
+  <meta name="keywords" content="stack," />
 
 
 
@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="TL;DRIn a word, KMP records the suffix substring which is a prefix of the string with max length at position i. Preprocessing KMP algorithm does preproceses pattern[] and constructs an auxiliary lps[]">
-<meta name="keywords" content="string">
+<meta name="description" content="Evaluate a postfix expressionPostfix expression: Operand1 Operand2 op123456789101112While (we have not reached the end of s)	If an operand is found		Push it onto the stack	End-If	If an operator is fou">
+<meta name="keywords" content="stack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Knuth–Morris–Pratt Algorithm">
-<meta property="og:url" content="http://jes2ica.github.io/2018/03/28/kmp/index.html">
+<meta property="og:title" content="Using a Stack to Evaluate an Expression">
+<meta property="og:url" content="http://jes2ica.github.io/2018/04/03/stack-evaluate-expression/index.html">
 <meta property="og:site_name" content="Jes2ica.IO">
-<meta property="og:description" content="TL;DRIn a word, KMP records the suffix substring which is a prefix of the string with max length at position i. Preprocessing KMP algorithm does preproceses pattern[] and constructs an auxiliary lps[]">
-<meta property="og:updated_time" content="2018-03-29T06:23:39.292Z">
+<meta property="og:description" content="Evaluate a postfix expressionPostfix expression: Operand1 Operand2 op123456789101112While (we have not reached the end of s)	If an operand is found		Push it onto the stack	End-If	If an operator is fou">
+<meta property="og:updated_time" content="2018-04-04T05:04:10.763Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Knuth–Morris–Pratt Algorithm">
-<meta name="twitter:description" content="TL;DRIn a word, KMP records the suffix substring which is a prefix of the string with max length at position i. Preprocessing KMP algorithm does preproceses pattern[] and constructs an auxiliary lps[]">
+<meta name="twitter:title" content="Using a Stack to Evaluate an Expression">
+<meta name="twitter:description" content="Evaluate a postfix expressionPostfix expression: Operand1 Operand2 op123456789101112While (we have not reached the end of s)	If an operand is found		Push it onto the stack	End-If	If an operator is fou">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://jes2ica.github.io/2018/03/28/kmp/"/>
+  <link rel="canonical" href="http://jes2ica.github.io/2018/04/03/stack-evaluate-expression/"/>
 
 
 
 
 
-  <title>Knuth–Morris–Pratt Algorithm | Jes2ica.IO</title>
+  <title>Using a Stack to Evaluate an Expression | Jes2ica.IO</title>
   
 
 
@@ -266,7 +266,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://jes2ica.github.io/2018/03/28/kmp/">
+    <link itemprop="mainEntityOfPage" href="http://jes2ica.github.io/2018/04/03/stack-evaluate-expression/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yijie Zhuang">
@@ -283,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Knuth–Morris–Pratt Algorithm</h1>
+          <h1 class="post-title" itemprop="name headline">Using a Stack to Evaluate an Expression</h1>
         
 
         <div class="post-meta">
@@ -295,8 +295,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-28T20:05:50-07:00">
-                2018-03-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-03T19:10:43-07:00">
+                2018-04-03
               </time>
             
 
@@ -318,8 +318,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">algorithm</span>
+                  <a href="/categories/data-structure/" itemprop="url" rel="index">
+                    <span itemprop="name">data structure</span>
                   </a>
                 </span>
 
@@ -352,25 +352,8 @@
       
 
       
-        <h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>In a word, KMP records the <code>suffix substring</code> which is a prefix of the string with max length at position i.</p>
-<h2 id="Preprocessing"><a href="#Preprocessing" class="headerlink" title="Preprocessing"></a>Preprocessing</h2><ul>
-<li>KMP algorithm does preproceses pattern[] and constructs an auxiliary <code>lps[]</code> of size m (same as size of pattern) which is used to skip characters while matching.</li>
-<li>name <code>lps</code> indicates <strong>longest proper prefix which is also suffix</strong>. <ul>
-<li>A proper prefix is prefix with whole string not allowed. </li>
-<li>For example, prefixes of “ABC” are “”, “A”, “AB” and “ABC”. Proper prefixes are “”, “A” and “AB”. Suffixes of the string are “”, “C”, “BC” and “ABC”.</li>
-<li>lps[i] = the longest proper prefix of pat[0..i] which is also a suffix of pat[0..i]. </li>
-<li>For the pattern “ababaca”, lps=[0, 0, 1, 2, 3, 0, 1].</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] computeLps(String pattern) &#123;</div><div class="line">	<span class="keyword">int</span> n = pattern.length();</div><div class="line">	<span class="keyword">int</span>[] lps = <span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</div><div class="line">		<span class="comment">// Start by assuming we're extending the previous LPS</span></div><div class="line">		<span class="keyword">int</span> j = lps[i - <span class="number">1</span>];</div><div class="line">		<span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; pattern.charAt(j) != pattern.charAt(i)) &#123;</div><div class="line">			j = lps[j - <span class="number">1</span>];</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span> (pattern.charAt(j) == pattern.charAt(i)) &#123;</div><div class="line">			lps[i] = j + <span class="number">1</span>;</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			lps[i] = <span class="number">0</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> lps;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(String pattern, String text)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span>[] lps = computeLps(pattern);</div><div class="line">	<span class="keyword">int</span> j = <span class="number">0</span>; <span class="comment">// Number of chars matched in pattern.</span></div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; text.length(); i++) &#123;</div><div class="line">		<span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; text.charAt(i) != pattern.charAt(j)) &#123;</div><div class="line">			<span class="comment">// Fall back in the pattern.</span></div><div class="line">			j = lps[j - <span class="number">1</span>]; <span class="comment">// Strickly decreasing.</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span> (text.charAt(i) == pattern.charAt(j)) &#123;</div><div class="line">			<span class="comment">// Next char matched, increment position.</span></div><div class="line">			j++;</div><div class="line">			<span class="keyword">if</span> (j == pattern.length()) &#123;</div><div class="line">				<span class="keyword">return</span> i - (j - <span class="number">1</span>);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> -<span class="number">1</span>; <span class="comment">// Not found.</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="More-info"><a href="#More-info" class="headerlink" title="More info"></a>More info</h2><ul>
-<li><a href="https://leetcode.com/problems/implement-strstr/description/" target="_blank" rel="external">Leetcode</a></li>
-<li><a href="https://www.geeksforgeeks.org/searching-for-patterns-set-2-kmp-algorithm/" target="_blank" rel="external">Geeks For Geeks</a></li>
-<li><a href="https://www.nayuki.io/page/knuth-morris-pratt-string-matching" target="_blank" rel="external">Knuth-Morris-Pratt String Matching</a></li>
-<li><a href="http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html" target="_blank" rel="external">字符串匹配的KMP算法</a></li>
-</ul>
+        <h2 id="Evaluate-a-postfix-expression"><a href="#Evaluate-a-postfix-expression" class="headerlink" title="Evaluate a postfix expression"></a>Evaluate a postfix expression</h2><p>Postfix expression: <code>Operand1 Operand2 op</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">While (we have not reached the end of s)</div><div class="line">	If an operand is found</div><div class="line">		Push it onto the stack</div><div class="line">	End-If</div><div class="line">	If an operator is found</div><div class="line">		Pop the stack and call the value B</div><div class="line">		Pop the stack and call the value A</div><div class="line">		Evaluate A op B using the operator just found</div><div class="line">		Push the result onto the stack</div><div class="line">	End-If</div><div class="line">End-While</div><div class="line">Pop the stack (this is the final value)</div></pre></td></tr></table></figure></p>
+<h2 id="Evaluate-a-infix-expression"><a href="#Evaluate-a-infix-expression" class="headerlink" title="Evaluate a infix expression"></a>Evaluate a infix expression</h2><p>Infix expression: <code>Operand1 op Operand2</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">Stacks: ops, values</div><div class="line">While (we have not reached the end of s)</div><div class="line">	If an operand is found</div><div class="line">		Push it onto the stack: values</div><div class="line">	End-If</div><div class="line">	If a left parenthesis is found</div><div class="line">		Push it onto the stack: ops</div><div class="line">	End-If</div><div class="line">	If a right parenthesis is found	</div><div class="line">		While (the stack: ops is not empty AND the top item is not a left parenthesis)</div><div class="line">			Pop the stack: ops and add the popped value to stack: values</div><div class="line">	End-If</div><div class="line">	If an operator is found</div><div class="line">		While (the stack is not empty AND the top of the stack is not a left parenthesis AND precedence of the operator &lt;= precedence of the top of the stack)</div><div class="line">			Pop the stack: ops and add the top value to stack: values</div><div class="line">		End-While</div><div class="line">		Push the latest operator onto the stack: ops</div><div class="line">	End-If</div><div class="line">End-While</div><div class="line"></div><div class="line">While (the stack is not empty)</div><div class="line">	Pop the stack and add the popped value to stack: values;</div><div class="line">End-While</div><div class="line">Pop the stack (this is the final value)</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -400,7 +383,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/string/" rel="tag"># string</a>
+            <a href="/tags/stack/" rel="tag"># stack</a>
           
         </div>
       
@@ -413,8 +396,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/04/2018-plan/" rel="next" title="Hello 2018">
-                <i class="fa fa-chevron-left"></i> Hello 2018
+              <a href="/2018/03/28/kmp/" rel="next" title="Knuth–Morris–Pratt Algorithm">
+                <i class="fa fa-chevron-left"></i> Knuth–Morris–Pratt Algorithm
               </a>
             
           </div>
@@ -422,10 +405,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/03/stack-evaluate-expression/" rel="prev" title="Using a Stack to Evaluate an Expression">
-                Using a Stack to Evaluate an Expression <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -554,7 +533,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TL-DR"><span class="nav-number">1.</span> <span class="nav-text">TL;DR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Preprocessing"><span class="nav-number">2.</span> <span class="nav-text">Preprocessing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search"><span class="nav-number">3.</span> <span class="nav-text">Search</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#More-info"><span class="nav-number">4.</span> <span class="nav-text">More info</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluate-a-postfix-expression"><span class="nav-number">1.</span> <span class="nav-text">Evaluate a postfix expression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluate-a-infix-expression"><span class="nav-number">2.</span> <span class="nav-text">Evaluate a infix expression</span></a></li></ol></div>
             
 
           </div>

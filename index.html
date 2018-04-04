@@ -263,6 +263,141 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://jes2ica.github.io/2018/04/03/stack-evaluate-expression/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yijie Zhuang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jes2ica.IO">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/03/stack-evaluate-expression/" itemprop="url">Using a Stack to Evaluate an Expression</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-03T19:10:43-07:00">
+                2018-04-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/data-structure/" itemprop="url" rel="index">
+                    <span itemprop="name">data structure</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Evaluate-a-postfix-expression"><a href="#Evaluate-a-postfix-expression" class="headerlink" title="Evaluate a postfix expression"></a>Evaluate a postfix expression</h2><p>Postfix expression: <code>Operand1 Operand2 op</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">While (we have not reached the end of s)</div><div class="line">	If an operand is found</div><div class="line">		Push it onto the stack</div><div class="line">	End-If</div><div class="line">	If an operator is found</div><div class="line">		Pop the stack and call the value B</div><div class="line">		Pop the stack and call the value A</div><div class="line">		Evaluate A op B using the operator just found</div><div class="line">		Push the result onto the stack</div><div class="line">	End-If</div><div class="line">End-While</div><div class="line">Pop the stack (this is the final value)</div></pre></td></tr></table></figure></p>
+<h2 id="Evaluate-a-infix-expression"><a href="#Evaluate-a-infix-expression" class="headerlink" title="Evaluate a infix expression"></a>Evaluate a infix expression</h2><p>Infix expression: <code>Operand1 op Operand2</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">Stacks: ops, values</div><div class="line">While (we have not reached the end of s)</div><div class="line">	If an operand is found</div><div class="line">		Push it onto the stack: values</div><div class="line">	End-If</div><div class="line">	If a left parenthesis is found</div><div class="line">		Push it onto the stack: ops</div><div class="line">	End-If</div><div class="line">	If a right parenthesis is found	</div><div class="line">		While (the stack: ops is not empty AND the top item is not a left parenthesis)</div><div class="line">			Pop the stack: ops and add the popped value to stack: values</div><div class="line">	End-If</div><div class="line">	If an operator is found</div><div class="line">		While (the stack is not empty AND the top of the stack is not a left parenthesis AND precedence of the operator &lt;= precedence of the top of the stack)</div><div class="line">			Pop the stack: ops and add the top value to stack: values</div><div class="line">		End-While</div><div class="line">		Push the latest operator onto the stack: ops</div><div class="line">	End-If</div><div class="line">End-While</div><div class="line"></div><div class="line">While (the stack is not empty)</div><div class="line">	Pop the stack and add the popped value to stack: values;</div><div class="line">End-While</div><div class="line">Pop the stack (this is the final value)</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://jes2ica.github.io/2018/03/28/kmp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1222,7 +1357,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1233,7 +1368,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -1244,7 +1379,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
