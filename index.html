@@ -97,6 +97,7 @@
 <meta property="og:title" content="Jes2ica.IO">
 <meta property="og:url" content="http://jes2ica.github.io/index.html">
 <meta property="og:site_name" content="Jes2ica.IO">
+<meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jes2ica.IO">
 
@@ -263,6 +264,159 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://jes2ica.github.io/2018/07/07/wish-pricing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yijie Zhuang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jes2ica.IO">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/07/wish-pricing/" itemprop="url">wish-pricing</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-07T08:46:09-07:00">
+                2018-07-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e-commerce/" itemprop="url" rel="index">
+                    <span itemprop="name">e-commerce</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="The-Price-Structure"><a href="#The-Price-Structure" class="headerlink" title="The Price Structure"></a>The Price Structure</h2><ul>
+<li>purchase cost<ul>
+<li>product price</li>
+<li>inbound cargo flow costs</li>
+</ul>
+</li>
+<li>cost of delivery<ul>
+<li>product weight</li>
+<li>cost per gram calculation</li>
+<li>registration fee (China Post packet)</li>
+</ul>
+</li>
+<li>product profit</li>
+<li>platform commission</li>
+<li>refund rate</li>
+<li>payment platform commission</li>
+</ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://www.chinabrands.com/dropshipping/article-what-are-the-elements-that-affect-wish-s-product-pricing-12693.html" target="_blank" rel="noopener">What Are the Elements that Affect Wish’s Product Pricing?</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://jes2ica.github.io/2018/04/04/java-concurrency/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -355,7 +509,7 @@
           
             <h2 id="Threads-and-Runnables"><a href="#Threads-and-Runnables" class="headerlink" title="Threads and Runnables"></a>Threads and Runnables</h2><ul>
 <li><p>Before starting a new thread you have to specify the code to be executed by this thread, often called the task. This is done by implementing <code>Runnable</code> - a functional interface defining a single void no-args method run().</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Runnable task = () -&gt; &#123;</div><div class="line">    String threadName = Thread.currentThread().getName();</div><div class="line">    System.out.println(<span class="string">"Hello "</span> + threadName);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">task.run();</div><div class="line"></div><div class="line">Thread thread = <span class="keyword">new</span> Thread(task);</div><div class="line">thread.start();</div><div class="line"></div><div class="line">System.out.println(<span class="string">"Done!"</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Runnable task = () -&gt; &#123;</span><br><span class="line">    String threadName = Thread.currentThread().getName();</span><br><span class="line">    System.out.println(<span class="string">"Hello "</span> + threadName);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">task.run();</span><br><span class="line"></span><br><span class="line">Thread thread = <span class="keyword">new</span> Thread(task);</span><br><span class="line">thread.start();</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"Done!"</span>);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Due to concurrent execution we cannot predict if the runnable will be invoked before or after printing ‘done’. The order is non-deterministic, thus making concurrent programming a complex task in larger applications.</p>
 </li>
@@ -364,22 +518,22 @@
 <li><code>ExecutorService</code> as a higher level replacement for working with threads directly. </li>
 <li>Executors are capable of running asynchronous tasks and typically manage a pool of threads, so we don’t have to create new threads manually.</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ExecutorService executor = Executors.newSingleThreadExecutor();</div><div class="line">executor.submit(() -&gt; &#123;</div><div class="line">    String threadName = Thread.currentThread().getName();</div><div class="line">    System.out.println(<span class="string">"Hello "</span> + threadName);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ExecutorService executor = Executors.newSingleThreadExecutor();</span><br><span class="line">executor.submit(() -&gt; &#123;</span><br><span class="line">    String threadName = Thread.currentThread().getName();</span><br><span class="line">    System.out.println(<span class="string">"Hello "</span> + threadName);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h3 id="Callables-and-Futures"><a href="#Callables-and-Futures" class="headerlink" title="Callables and Futures"></a>Callables and Futures</h3><p>In addition to Runnable executors support another kind of task named <code>Callable</code>. Callables are functional interfaces just like runnables but instead of being void they return a value.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">ExecutorService executor = Executors.newFixedThreadPool(<span class="number">1</span>);</div><div class="line">Future&lt;Integer&gt; future = executor.submit(task);</div><div class="line"></div><div class="line">System.out.println(<span class="string">"future done? "</span> + future.isDone());</div><div class="line"></div><div class="line">Integer result = future.get();</div><div class="line"></div><div class="line">System.out.println(<span class="string">"future done? "</span> + future.isDone());</div><div class="line">System.out.print(<span class="string">"result: "</span> + result);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ExecutorService executor = Executors.newFixedThreadPool(<span class="number">1</span>);</span><br><span class="line">Future&lt;Integer&gt; future = executor.submit(task);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"future done? "</span> + future.isDone());</span><br><span class="line"></span><br><span class="line">Integer result = future.get();</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"future done? "</span> + future.isDone());</span><br><span class="line">System.out.print(<span class="string">"result: "</span> + result);</span><br></pre></td></tr></table></figure>
 <h2 id="Synchronized"><a href="#Synchronized" class="headerlink" title="Synchronized"></a>Synchronized</h2><p>When writing such multi-threaded code you have to pay particular attention when accessing shared mutable variables concurrently from multiple threads. Let’s just say we want to increment an integer which is accessible simultaneously from multiple threads.</p>
-<p>We define a field count with a method <code>incrementSync()</code> to increase count by one:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">incrementSync</span><span class="params">()</span> </span>&#123;</div><div class="line">    count = count + <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>When using <code>incrementSync()</code> concurrently we get the desired result count of 10000. No race conditions occur any longer and the result is stable with every execution of the code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">ExecutorService executor = Executors.newFixedThreadPool(<span class="number">2</span>);</div><div class="line"></div><div class="line">IntStream.range(<span class="number">0</span>, <span class="number">10000</span>)</div><div class="line">    .forEach(i -&gt; executor.submit(<span class="keyword">this</span>::incrementSync));</div><div class="line"></div><div class="line">stop(executor);</div><div class="line"></div><div class="line">System.out.println(count);  <span class="comment">// 10000</span></div></pre></td></tr></table></figure></p>
-<p>Internally Java uses a so called monitor also known as <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html" target="_blank" rel="external">monitor lock or intrinsic lock</a> in order to manage synchronization. This monitor is bound to an object, e.g. when using synchronized methods each method share the same monitor of the corresponding object.</p>
+<p>We define a field count with a method <code>incrementSync()</code> to increase count by one:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">incrementSync</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    count = count + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>When using <code>incrementSync()</code> concurrently we get the desired result count of 10000. No race conditions occur any longer and the result is stable with every execution of the code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ExecutorService executor = Executors.newFixedThreadPool(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">IntStream.range(<span class="number">0</span>, <span class="number">10000</span>)</span><br><span class="line">    .forEach(i -&gt; executor.submit(<span class="keyword">this</span>::incrementSync));</span><br><span class="line"></span><br><span class="line">stop(executor);</span><br><span class="line"></span><br><span class="line">System.out.println(count);  <span class="comment">// 10000</span></span><br></pre></td></tr></table></figure></p>
+<p>Internally Java uses a so called monitor also known as <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html" target="_blank" rel="noopener">monitor lock or intrinsic lock</a> in order to manage synchronization. This monitor is bound to an object, e.g. when using synchronized methods each method share the same monitor of the corresponding object.</p>
 <p>All implicit monitors implement the reentrant characteristics. Reentrant means that locks are bound to the current thread. A thread can safely acquire the same lock multiple times without running into deadlocks (e.g. a synchronized method calls another synchronized method on the same object).</p>
 <h2 id="AtomicInteger"><a href="#AtomicInteger" class="headerlink" title="AtomicInteger"></a>AtomicInteger</h2><p>An operation is atomic when you can safely perform the operation in parallel on multiple threads without using the synchronized keyword or locks.</p>
-<p>Internally, the atomic classes make heavy use of <a href="https://en.wikipedia.org/wiki/Compare-and-swap" target="_blank" rel="external">compare-and-swap</a> (CAS), an atomic instruction directly supported by most modern CPUs. Those instructions usually are much faster than synchronizing via locks. So my advice is to prefer atomic classes over locks in case you just have to change a single mutable variable concurrently.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">AtomicInteger atomicInt = <span class="keyword">new</span> AtomicInteger(<span class="number">0</span>);</div><div class="line"></div><div class="line">ExecutorService executor = Executors.newFixedThreadPool(<span class="number">2</span>);</div><div class="line"></div><div class="line">IntStream.range(<span class="number">0</span>, <span class="number">1000</span>)</div><div class="line">    .forEach(i -&gt; executor.submit(atomicInt::incrementAndGet));</div><div class="line"></div><div class="line">stop(executor);</div><div class="line"></div><div class="line">System.out.println(atomicInt.get());    <span class="comment">// =&gt; 1000</span></div></pre></td></tr></table></figure>
+<p>Internally, the atomic classes make heavy use of <a href="https://en.wikipedia.org/wiki/Compare-and-swap" target="_blank" rel="noopener">compare-and-swap</a> (CAS), an atomic instruction directly supported by most modern CPUs. Those instructions usually are much faster than synchronizing via locks. So my advice is to prefer atomic classes over locks in case you just have to change a single mutable variable concurrently.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">AtomicInteger atomicInt = <span class="keyword">new</span> AtomicInteger(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">ExecutorService executor = Executors.newFixedThreadPool(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">IntStream.range(<span class="number">0</span>, <span class="number">1000</span>)</span><br><span class="line">    .forEach(i -&gt; executor.submit(atomicInt::incrementAndGet));</span><br><span class="line"></span><br><span class="line">stop(executor);</span><br><span class="line"></span><br><span class="line">System.out.println(atomicInt.get());    <span class="comment">// =&gt; 1000</span></span><br></pre></td></tr></table></figure>
 <p>By using <code>AtomicInteger</code> as a replacement for <code>Integer</code> we’re able to increment the number concurrently in a thread-safe manor without synchronizing the access to the variable. The method <code>incrementAndGet()</code> is an atomic operation so we can safely call this method from multiple threads.</p>
 <p>AtomicInteger supports various kinds of atomic operations. The method updateAndGet() accepts a lambda expression in order to perform arbitrary arithmetic operations upon the integer:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">AtomicInteger atomicInt = <span class="keyword">new</span> AtomicInteger(<span class="number">0</span>);</div><div class="line"></div><div class="line">ExecutorService executor = Executors.newFixedThreadPool(<span class="number">2</span>);</div><div class="line"></div><div class="line">IntStream.range(<span class="number">0</span>, <span class="number">1000</span>)</div><div class="line">    .forEach(i -&gt; &#123;</div><div class="line">        Runnable task = () -&gt;</div><div class="line">            atomicInt.updateAndGet(n -&gt; n + <span class="number">2</span>);</div><div class="line">        executor.submit(task);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">stop(executor);</div><div class="line"></div><div class="line">System.out.println(atomicInt.get());    <span class="comment">// =&gt; 2000</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">AtomicInteger atomicInt = <span class="keyword">new</span> AtomicInteger(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">ExecutorService executor = Executors.newFixedThreadPool(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">IntStream.range(<span class="number">0</span>, <span class="number">1000</span>)</span><br><span class="line">    .forEach(i -&gt; &#123;</span><br><span class="line">        Runnable task = () -&gt;</span><br><span class="line">            atomicInt.updateAndGet(n -&gt; n + <span class="number">2</span>);</span><br><span class="line">        executor.submit(task);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">stop(executor);</span><br><span class="line"></span><br><span class="line">System.out.println(atomicInt.get());    <span class="comment">// =&gt; 2000</span></span><br></pre></td></tr></table></figure>
 <h2 id="ConcurrentMap"><a href="#ConcurrentMap" class="headerlink" title="ConcurrentMap"></a>ConcurrentMap</h2><p>The interface ConcurrentMap extends the map interface and defines one of the most useful concurrent collection types. Java 8 introduces functional programming by adding new methods to this interface.</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="http://winterbe.com/posts/2015/04/07/java8-concurrency-tutorial-thread-executor-examples/" target="_blank" rel="external">http://winterbe.com/posts/2015/04/07/java8-concurrency-tutorial-thread-executor-examples/</a></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="http://winterbe.com/posts/2015/04/07/java8-concurrency-tutorial-thread-executor-examples/" target="_blank" rel="noopener">http://winterbe.com/posts/2015/04/07/java8-concurrency-tutorial-thread-executor-examples/</a></p>
 
           
         
@@ -513,11 +667,11 @@
       
         
           
-            <h2 id="Evaluate-a-postfix-expression"><a href="#Evaluate-a-postfix-expression" class="headerlink" title="Evaluate a postfix expression"></a>Evaluate a postfix expression</h2><p>Postfix expression: <code>Operand1 Operand2 op</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">While (we have not reached the end of s)</div><div class="line">	If an operand is found</div><div class="line">		Push it onto the stack</div><div class="line">	End-If</div><div class="line">	If an operator is found</div><div class="line">		Pop the stack and call the value B</div><div class="line">		Pop the stack and call the value A</div><div class="line">		Evaluate A op B using the operator just found</div><div class="line">		Push the result onto the stack</div><div class="line">	End-If</div><div class="line">End-While</div><div class="line">Pop the stack (this is the final value)</div></pre></td></tr></table></figure></p>
-<h2 id="Evaluate-a-infix-expression"><a href="#Evaluate-a-infix-expression" class="headerlink" title="Evaluate a infix expression"></a>Evaluate a infix expression</h2><p>Infix expression: <code>Operand1 op Operand2</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">Stacks: ops, values</div><div class="line">While (we have not reached the end of s)</div><div class="line">	If an operand is found</div><div class="line">		Push it onto the stack: values</div><div class="line">	End-If</div><div class="line">	If a left parenthesis is found</div><div class="line">		Push it onto the stack: ops</div><div class="line">	End-If</div><div class="line">	If a right parenthesis is found	</div><div class="line">		While (the stack: ops is not empty AND the top item is not a left parenthesis)</div><div class="line">			Pop the stack: ops and add the popped value to stack: values</div><div class="line">	End-If</div><div class="line">	If an operator is found</div><div class="line">		While (the stack is not empty AND the top of the stack is not a left parenthesis AND precedence of the operator &lt;= precedence of the top of the stack)</div><div class="line">			Pop the stack: ops and add the top value to stack: values</div><div class="line">		End-While</div><div class="line">		Push the latest operator onto the stack: ops</div><div class="line">	End-If</div><div class="line">End-While</div><div class="line"></div><div class="line">While (the stack is not empty)</div><div class="line">	Pop the stack and add the popped value to stack: values;</div><div class="line">End-While</div><div class="line">Pop the stack (this is the final value)</div></pre></td></tr></table></figure></p>
+            <h2 id="Evaluate-a-postfix-expression"><a href="#Evaluate-a-postfix-expression" class="headerlink" title="Evaluate a postfix expression"></a>Evaluate a postfix expression</h2><p>Postfix expression: <code>Operand1 Operand2 op</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">While (we have not reached the end of s)</span><br><span class="line">	If an operand is found</span><br><span class="line">		Push it onto the stack</span><br><span class="line">	End-If</span><br><span class="line">	If an operator is found</span><br><span class="line">		Pop the stack and call the value B</span><br><span class="line">		Pop the stack and call the value A</span><br><span class="line">		Evaluate A op B using the operator just found</span><br><span class="line">		Push the result onto the stack</span><br><span class="line">	End-If</span><br><span class="line">End-While</span><br><span class="line">Pop the stack (this is the final value)</span><br></pre></td></tr></table></figure></p>
+<h2 id="Evaluate-a-infix-expression"><a href="#Evaluate-a-infix-expression" class="headerlink" title="Evaluate a infix expression"></a>Evaluate a infix expression</h2><p>Infix expression: <code>Operand1 op Operand2</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Stacks: ops, values</span><br><span class="line">While (we have not reached the end of s)</span><br><span class="line">	If an operand is found</span><br><span class="line">		Push it onto the stack: values</span><br><span class="line">	End-If</span><br><span class="line">	If a left parenthesis is found</span><br><span class="line">		Push it onto the stack: ops</span><br><span class="line">	End-If</span><br><span class="line">	If a right parenthesis is found</span><br><span class="line">		While (the stack: ops is not empty AND the top item is not a left parenthesis)</span><br><span class="line">			Pop the stack: ops and add the popped value to stack: values</span><br><span class="line">	End-If</span><br><span class="line">	If an operator is found</span><br><span class="line">		While (the stack is not empty AND the top of the stack is not a left parenthesis AND precedence of the operator &lt;= precedence of the top of the stack)</span><br><span class="line">			Pop the stack: ops and add the top value to stack: values</span><br><span class="line">		End-While</span><br><span class="line">		Push the latest operator onto the stack: ops</span><br><span class="line">	End-If</span><br><span class="line">End-While</span><br><span class="line"></span><br><span class="line">While (the stack is not empty)</span><br><span class="line">	Pop the stack and add the popped value to stack: values;</span><br><span class="line">End-While</span><br><span class="line">Pop the stack (this is the final value)</span><br></pre></td></tr></table></figure></p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a href="http://faculty.cs.niu.edu/~hutchins/csci241/eval.htm" target="_blank" rel="external">http://faculty.cs.niu.edu/~hutchins/csci241/eval.htm</a></li>
-<li><a href="https://algs4.cs.princeton.edu/lectures/13StacksAndQueues-2x2.pdf" target="_blank" rel="external">https://algs4.cs.princeton.edu/lectures/13StacksAndQueues-2x2.pdf</a></li>
+<li><a href="http://faculty.cs.niu.edu/~hutchins/csci241/eval.htm" target="_blank" rel="noopener">http://faculty.cs.niu.edu/~hutchins/csci241/eval.htm</a></li>
+<li><a href="https://algs4.cs.princeton.edu/lectures/13StacksAndQueues-2x2.pdf" target="_blank" rel="noopener">https://algs4.cs.princeton.edu/lectures/13StacksAndQueues-2x2.pdf</a></li>
 </ul>
 
           
@@ -663,13 +817,13 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] computeLps(String pattern) &#123;</div><div class="line">	<span class="keyword">int</span> n = pattern.length();</div><div class="line">	<span class="keyword">int</span>[] lps = <span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</div><div class="line">		<span class="comment">// Start by assuming we're extending the previous LPS</span></div><div class="line">		<span class="keyword">int</span> j = lps[i - <span class="number">1</span>];</div><div class="line">		<span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; pattern.charAt(j) != pattern.charAt(i)) &#123;</div><div class="line">			j = lps[j - <span class="number">1</span>];</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span> (pattern.charAt(j) == pattern.charAt(i)) &#123;</div><div class="line">			lps[i] = j + <span class="number">1</span>;</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			lps[i] = <span class="number">0</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> lps;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(String pattern, String text)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span>[] lps = computeLps(pattern);</div><div class="line">	<span class="keyword">int</span> j = <span class="number">0</span>; <span class="comment">// Number of chars matched in pattern.</span></div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; text.length(); i++) &#123;</div><div class="line">		<span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; text.charAt(i) != pattern.charAt(j)) &#123;</div><div class="line">			<span class="comment">// Fall back in the pattern.</span></div><div class="line">			j = lps[j - <span class="number">1</span>]; <span class="comment">// Strickly decreasing.</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span> (text.charAt(i) == pattern.charAt(j)) &#123;</div><div class="line">			<span class="comment">// Next char matched, increment position.</span></div><div class="line">			j++;</div><div class="line">			<span class="keyword">if</span> (j == pattern.length()) &#123;</div><div class="line">				<span class="keyword">return</span> i - (j - <span class="number">1</span>);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> -<span class="number">1</span>; <span class="comment">// Not found.</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] computeLps(String pattern) &#123;</span><br><span class="line">	<span class="keyword">int</span> n = pattern.length();</span><br><span class="line">	<span class="keyword">int</span>[] lps = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="comment">// Start by assuming we're extending the previous LPS</span></span><br><span class="line">		<span class="keyword">int</span> j = lps[i - <span class="number">1</span>];</span><br><span class="line">		<span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; pattern.charAt(j) != pattern.charAt(i)) &#123;</span><br><span class="line">			j = lps[j - <span class="number">1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (pattern.charAt(j) == pattern.charAt(i)) &#123;</span><br><span class="line">			lps[i] = j + <span class="number">1</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			lps[i] = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> lps;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(String pattern, String text)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span>[] lps = computeLps(pattern);</span><br><span class="line">	<span class="keyword">int</span> j = <span class="number">0</span>; <span class="comment">// Number of chars matched in pattern.</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; text.length(); i++) &#123;</span><br><span class="line">		<span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; text.charAt(i) != pattern.charAt(j)) &#123;</span><br><span class="line">			<span class="comment">// Fall back in the pattern.</span></span><br><span class="line">			j = lps[j - <span class="number">1</span>]; <span class="comment">// Strickly decreasing.</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (text.charAt(i) == pattern.charAt(j)) &#123;</span><br><span class="line">			<span class="comment">// Next char matched, increment position.</span></span><br><span class="line">			j++;</span><br><span class="line">			<span class="keyword">if</span> (j == pattern.length()) &#123;</span><br><span class="line">				<span class="keyword">return</span> i - (j - <span class="number">1</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>; <span class="comment">// Not found.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="More-info"><a href="#More-info" class="headerlink" title="More info"></a>More info</h2><ul>
-<li><a href="https://leetcode.com/problems/implement-strstr/description/" target="_blank" rel="external">Leetcode</a></li>
-<li><a href="https://www.geeksforgeeks.org/searching-for-patterns-set-2-kmp-algorithm/" target="_blank" rel="external">Geeks For Geeks</a></li>
-<li><a href="https://www.nayuki.io/page/knuth-morris-pratt-string-matching" target="_blank" rel="external">Knuth-Morris-Pratt String Matching</a></li>
-<li><a href="http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html" target="_blank" rel="external">字符串匹配的KMP算法</a></li>
+<li><a href="https://leetcode.com/problems/implement-strstr/description/" target="_blank" rel="noopener">Leetcode</a></li>
+<li><a href="https://www.geeksforgeeks.org/searching-for-patterns-set-2-kmp-algorithm/" target="_blank" rel="noopener">Geeks For Geeks</a></li>
+<li><a href="https://www.nayuki.io/page/knuth-morris-pratt-string-matching" target="_blank" rel="noopener">Knuth-Morris-Pratt String Matching</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html" target="_blank" rel="noopener">字符串匹配的KMP算法</a></li>
 </ul>
 
           
@@ -942,7 +1096,7 @@
 <p>According to the definition of h-index on Wikipedia: “A scientist has index h if h of his/her N papers have at least h citations each, and the other N − h papers have no more than h citations each.”</p>
 <p>For example, given citations = [3, 0, 6, 1, 5], which means the researcher has 5 papers in total and each of them had received 3, 0, 6, 1, 5 citations respectively. Since the researcher has 3 papers with at least 3 citations each and the remaining two with no more than 3 citations each, his h-index is 3.</p>
 <p>Note: If there are several possible values for h, the maximum one is taken as the h-index.</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public int hIndex(int[] citations) &#123;</div><div class="line">    int left = 0, right = citations.length;</div><div class="line">    // For case &quot;[0]&quot;, left = right.</div><div class="line">    while (left &lt;= right) &#123;</div><div class="line">        int mid = left + (right - left) / 2;</div><div class="line">        if (citations.length - mid &gt; citations[mid]) &#123;</div><div class="line">            // Move left pointer.</div><div class="line">            left = mid + 1;</div><div class="line">        &#125; else &#123;</div><div class="line">            right = mid;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return citations.length - left;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public int hIndex(int[] citations) &#123;</span><br><span class="line">    int left = 0, right = citations.length;</span><br><span class="line">    // For case &quot;[0]&quot;, left = right.</span><br><span class="line">    while (left &lt;= right) &#123;</span><br><span class="line">        int mid = left + (right - left) / 2;</span><br><span class="line">        if (citations.length - mid &gt; citations[mid]) &#123;</span><br><span class="line">            // Move left pointer.</span><br><span class="line">            left = mid + 1;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            right = mid;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return citations.length - left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><p><code>Arrays.binarySearch()</code> returns a negative value that is equivalent to <code>-[insertion point] - 1</code>, where insertion point is defined as the index at which the search key would be inserted into the array or list.</p>
 
           
@@ -1091,7 +1245,7 @@
 </ul>
 </li>
 <li><p>Solution</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public boolean PredictTheWinner(int[] nums) &#123;</div><div class="line">    return predictHelper(nums, 0, nums.length - 1) &gt;= 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public int predictHelper(int[] nums, int left, int right) &#123;</div><div class="line">    if (left == right) &#123;</div><div class="line">        return nums[left];</div><div class="line">    &#125;</div><div class="line">    return Math.max(</div><div class="line">        nums[left] - predictHelper(nums, left + 1, right),</div><div class="line">        nums[right] - predictHelper(nums, left, right - 1));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public boolean PredictTheWinner(int[] nums) &#123;</span><br><span class="line">    return predictHelper(nums, 0, nums.length - 1) &gt;= 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public int predictHelper(int[] nums, int left, int right) &#123;</span><br><span class="line">    if (left == right) &#123;</span><br><span class="line">        return nums[left];</span><br><span class="line">    &#125;</span><br><span class="line">    return Math.max(</span><br><span class="line">        nums[left] - predictHelper(nums, left + 1, right),</span><br><span class="line">        nums[right] - predictHelper(nums, left, right - 1));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Analysis<br>Time complexity: O(2^n)<br>Space complexity: O(n)</p>
 </li>
@@ -1099,7 +1253,7 @@
 <h2 id="Memorization"><a href="#Memorization" class="headerlink" title="Memorization"></a>Memorization</h2><ul>
 <li>Idea<br>In the last approach, a lot of duplicate calls to predictHelper function will be made with the same set of arguments, since the same subarray could be obtained by following different paths in the search space. This redundancy can be removed by making use of memoization.</li>
 <li><p>Solution</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">public boolean PredictTheWinner(int[] nums) &#123;</div><div class="line">    Integer[][] cache = new Integer[nums.length][nums.length];</div><div class="line">    return predictHelper(nums, 0, nums.length - 1, cache) &gt;= 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public int predictHelper(int[] nums, int left, int right, Integer[][] cache) &#123;</div><div class="line">    if (left == right) &#123;</div><div class="line">        return nums[left];</div><div class="line">    &#125;</div><div class="line">    return cache[left][right] != null ?</div><div class="line">        cache[left][right] :</div><div class="line">        Math.max(</div><div class="line">            nums[left] - predictHelper(nums, left + 1, right, cache),</div><div class="line">            nums[right] - predictHelper(nums, left, right - 1, cache));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public boolean PredictTheWinner(int[] nums) &#123;</span><br><span class="line">    Integer[][] cache = new Integer[nums.length][nums.length];</span><br><span class="line">    return predictHelper(nums, 0, nums.length - 1, cache) &gt;= 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public int predictHelper(int[] nums, int left, int right, Integer[][] cache) &#123;</span><br><span class="line">    if (left == right) &#123;</span><br><span class="line">        return nums[left];</span><br><span class="line">    &#125;</span><br><span class="line">    return cache[left][right] != null ?</span><br><span class="line">        cache[left][right] :</span><br><span class="line">        Math.max(</span><br><span class="line">            nums[left] - predictHelper(nums, left + 1, right, cache),</span><br><span class="line">            nums[right] - predictHelper(nums, left, right - 1, cache));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Analysis<br>Time complexity: O(n^2)<br>Space complexity: O(n^2)</p>
 </li>
@@ -1111,16 +1265,16 @@
 </ul>
 </li>
 <li><p>Solution</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line">    public boolean PredictTheWinner(int[] nums) &#123;</div><div class="line">        int[][] dp = new int[nums.length + 1][nums.length + 1];</div><div class="line">        for (int i = nums.length - 1; i &gt;= 0; i--) &#123;</div><div class="line">            for (int j = i + 1; j &lt; nums.length; j++) &#123;</div><div class="line">                dp[i][j] = Math.max(nums[i] - dp[i + 1][j], nums[j] - dp[i][j - 1]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return dp[0][nums.length - 1] &gt;= 0;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public boolean PredictTheWinnerOptimized(int[] nums) &#123;</div><div class="line">      int[] dp = new int[nums.length];</div><div class="line">      for (int i = nums.length - 1; i &gt;= 0; i--) &#123;</div><div class="line">          for (int j = i + 1; j &lt; nums.length; j++) &#123;</div><div class="line">              dp[j] = Math.max(nums[i] - dp[j], nums[j] - dp[j - 1]);</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      return dp[nums.length - 1] &gt;= 0;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public boolean PredictTheWinner(int[] nums) &#123;</span><br><span class="line">        int[][] dp = new int[nums.length + 1][nums.length + 1];</span><br><span class="line">        for (int i = nums.length - 1; i &gt;= 0; i--) &#123;</span><br><span class="line">            for (int j = i + 1; j &lt; nums.length; j++) &#123;</span><br><span class="line">                dp[i][j] = Math.max(nums[i] - dp[i + 1][j], nums[j] - dp[i][j - 1]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return dp[0][nums.length - 1] &gt;= 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public boolean PredictTheWinnerOptimized(int[] nums) &#123;</span><br><span class="line">      int[] dp = new int[nums.length];</span><br><span class="line">      for (int i = nums.length - 1; i &gt;= 0; i--) &#123;</span><br><span class="line">          for (int j = i + 1; j &lt; nums.length; j++) &#123;</span><br><span class="line">              dp[j] = Math.max(nums[i] - dp[j], nums[j] - dp[j - 1]);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      return dp[nums.length - 1] &gt;= 0;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Analysis<br>Time complexity: O(n^2)<br>Space complexity: O(n^2) / O(n)</p>
 </li>
 </ul>
 <h2 id="More-info"><a href="#More-info" class="headerlink" title="More info"></a>More info</h2><ul>
-<li><a href="https://leetcode.com/problems/predict-the-winner/#/description" target="_blank" rel="external">Leetcode</a></li>
-<li><a href="https://www.topcoder.com/community/data-science/data-science-tutorials/dynamic-programming-from-novice-to-advanced/" target="_blank" rel="external">Topcoder</a></li>
-<li><a href="https://www.youtube.com/watch?v=Tw1k46ywN6E&amp;feature=youtu.be&amp;list=PLUl4u3cNGP6317WaSNfmCvGym2ucw3oGp&amp;t=3622" target="_blank" rel="external">MIT Dynamic Programming: Advanced DP</a></li>
+<li><a href="https://leetcode.com/problems/predict-the-winner/#/description" target="_blank" rel="noopener">Leetcode</a></li>
+<li><a href="https://www.topcoder.com/community/data-science/data-science-tutorials/dynamic-programming-from-novice-to-advanced/" target="_blank" rel="noopener">Topcoder</a></li>
+<li><a href="https://www.youtube.com/watch?v=Tw1k46ywN6E&amp;feature=youtu.be&amp;list=PLUl4u3cNGP6317WaSNfmCvGym2ucw3oGp&amp;t=3622" target="_blank" rel="noopener">MIT Dynamic Programming: Advanced DP</a></li>
 </ul>
 
           
@@ -1165,7 +1319,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://jes2ica.github.io/2017/07/05/binary-indexed-trees/">
+    <link itemprop="mainEntityOfPage" href="http://jes2ica.github.io/2017/07/05/binary-indexed-tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yijie Zhuang">
@@ -1184,7 +1338,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/05/binary-indexed-trees/" itemprop="url">Binary Indexed Trees</a></h1>
+                <a class="post-title-link" href="/2017/07/05/binary-indexed-tree/" itemprop="url">Binary Indexed Tree</a></h1>
         
 
         <div class="post-meta">
@@ -1219,8 +1373,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">algorithm</span>
+                  <a href="/categories/data-structure/" itemprop="url" rel="index">
+                    <span itemprop="name">data structure</span>
                   </a>
                 </span>
 
@@ -1255,16 +1409,16 @@
       
         
           
-            <p>A Fenwick tree or binary indexed tree is a data structure that can efficiently update elements and calculate prefix sums in a table of numbers. This structure was proposed by Peter Fenwick in 1994 to improve the efficiency of <a href="http://www.ioinformatics.org/oi/pdf/v9_2015_39_44.pdf" target="_blank" rel="external">arithmetic coding compression algorithms</a>.</p>
+            <p>A Fenwick tree or binary indexed tree is a data structure that can efficiently update elements and calculate prefix sums in a table of numbers. This structure was proposed by Peter Fenwick in 1994 to improve the efficiency of <a href="http://www.ioinformatics.org/oi/pdf/v9_2015_39_44.pdf" target="_blank" rel="noopener">arithmetic coding compression algorithms</a>.</p>
 <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><ol>
 <li>add marble to box i</li>
 <li>sum marbles from box k to box l</li>
 </ol>
 <h2 id="Naive-Solution"><a href="#Naive-Solution" class="headerlink" title="Naive Solution"></a>Naive Solution</h2><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h2><h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><ul>
-<li><a href="https://leetcode.com/problems/range-sum-query-mutable/#/description" target="_blank" rel="external">Range Sum Query - Mutable</a></li>
+<li><a href="https://leetcode.com/problems/range-sum-query-mutable/#/description" target="_blank" rel="noopener">Range Sum Query - Mutable</a></li>
 </ul>
 <h2 id="More-info"><a href="#More-info" class="headerlink" title="More info:"></a>More info:</h2><ul>
-<li><a href="https://www.topcoder.com/community/data-science/data-science-tutorials/binary-indexed-trees/" target="_blank" rel="external">Topcoder</a></li>
+<li><a href="https://www.topcoder.com/community/data-science/data-science-tutorials/binary-indexed-trees/" target="_blank" rel="noopener">Topcoder</a></li>
 </ul>
 
           
@@ -1436,11 +1590,12 @@
 </li>
 </ul>
 <h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><ul>
-<li><a href="https://leetcode.com/problems/linked-list-random-node/#/description" target="_blank" rel="external">Linked List Random Node</a></li>
+<li><a href="https://leetcode.com/problems/linked-list-random-node/#/description" target="_blank" rel="noopener">Linked List Random Node</a></li>
+<li><a href="https://leetcode.com/problems/random-pick-index/description/" target="_blank" rel="noopener">Random Pick Index</a></li>
 </ul>
 <h2 id="More-info"><a href="#More-info" class="headerlink" title="More info:"></a>More info:</h2><ul>
-<li><a href="https://en.wikipedia.org/wiki/Reservoir_sampling" target="_blank" rel="external">Wiki</a></li>
-<li><a href="https://discuss.leetcode.com/topic/53753/brief-explanation-for-reservoir-sampling" target="_blank" rel="external">Leetcode</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Reservoir_sampling" target="_blank" rel="noopener">Wiki</a></li>
+<li><a href="https://discuss.leetcode.com/topic/53753/brief-explanation-for-reservoir-sampling" target="_blank" rel="noopener">Leetcode</a></li>
 </ul>
 
           
@@ -1521,7 +1676,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1532,7 +1687,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -1543,7 +1698,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

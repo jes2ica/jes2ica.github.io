@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="stack," />
+  <meta name="keywords" content="leetcode,stack," />
 
 
 
@@ -94,13 +94,14 @@
 
 
 <meta name="description" content="Evaluate a postfix expressionPostfix expression: Operand1 Operand2 op123456789101112While (we have not reached the end of s)	If an operand is found		Push it onto the stack	End-If	If an operator is fou">
-<meta name="keywords" content="stack">
+<meta name="keywords" content="leetcode,stack">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Using a Stack to Evaluate an Expression">
 <meta property="og:url" content="http://jes2ica.github.io/2018/04/03/stack-evaluate-expression/index.html">
 <meta property="og:site_name" content="Jes2ica.IO">
 <meta property="og:description" content="Evaluate a postfix expressionPostfix expression: Operand1 Operand2 op123456789101112While (we have not reached the end of s)	If an operand is found		Push it onto the stack	End-If	If an operator is fou">
-<meta property="og:updated_time" content="2018-04-04T13:53:25.374Z">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-04-28T20:20:58.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Using a Stack to Evaluate an Expression">
 <meta name="twitter:description" content="Evaluate a postfix expressionPostfix expression: Operand1 Operand2 op123456789101112While (we have not reached the end of s)	If an operand is found		Push it onto the stack	End-If	If an operator is fou">
@@ -352,11 +353,11 @@
       
 
       
-        <h2 id="Evaluate-a-postfix-expression"><a href="#Evaluate-a-postfix-expression" class="headerlink" title="Evaluate a postfix expression"></a>Evaluate a postfix expression</h2><p>Postfix expression: <code>Operand1 Operand2 op</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">While (we have not reached the end of s)</div><div class="line">	If an operand is found</div><div class="line">		Push it onto the stack</div><div class="line">	End-If</div><div class="line">	If an operator is found</div><div class="line">		Pop the stack and call the value B</div><div class="line">		Pop the stack and call the value A</div><div class="line">		Evaluate A op B using the operator just found</div><div class="line">		Push the result onto the stack</div><div class="line">	End-If</div><div class="line">End-While</div><div class="line">Pop the stack (this is the final value)</div></pre></td></tr></table></figure></p>
-<h2 id="Evaluate-a-infix-expression"><a href="#Evaluate-a-infix-expression" class="headerlink" title="Evaluate a infix expression"></a>Evaluate a infix expression</h2><p>Infix expression: <code>Operand1 op Operand2</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">Stacks: ops, values</div><div class="line">While (we have not reached the end of s)</div><div class="line">	If an operand is found</div><div class="line">		Push it onto the stack: values</div><div class="line">	End-If</div><div class="line">	If a left parenthesis is found</div><div class="line">		Push it onto the stack: ops</div><div class="line">	End-If</div><div class="line">	If a right parenthesis is found	</div><div class="line">		While (the stack: ops is not empty AND the top item is not a left parenthesis)</div><div class="line">			Pop the stack: ops and add the popped value to stack: values</div><div class="line">	End-If</div><div class="line">	If an operator is found</div><div class="line">		While (the stack is not empty AND the top of the stack is not a left parenthesis AND precedence of the operator &lt;= precedence of the top of the stack)</div><div class="line">			Pop the stack: ops and add the top value to stack: values</div><div class="line">		End-While</div><div class="line">		Push the latest operator onto the stack: ops</div><div class="line">	End-If</div><div class="line">End-While</div><div class="line"></div><div class="line">While (the stack is not empty)</div><div class="line">	Pop the stack and add the popped value to stack: values;</div><div class="line">End-While</div><div class="line">Pop the stack (this is the final value)</div></pre></td></tr></table></figure></p>
+        <h2 id="Evaluate-a-postfix-expression"><a href="#Evaluate-a-postfix-expression" class="headerlink" title="Evaluate a postfix expression"></a>Evaluate a postfix expression</h2><p>Postfix expression: <code>Operand1 Operand2 op</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">While (we have not reached the end of s)</span><br><span class="line">	If an operand is found</span><br><span class="line">		Push it onto the stack</span><br><span class="line">	End-If</span><br><span class="line">	If an operator is found</span><br><span class="line">		Pop the stack and call the value B</span><br><span class="line">		Pop the stack and call the value A</span><br><span class="line">		Evaluate A op B using the operator just found</span><br><span class="line">		Push the result onto the stack</span><br><span class="line">	End-If</span><br><span class="line">End-While</span><br><span class="line">Pop the stack (this is the final value)</span><br></pre></td></tr></table></figure></p>
+<h2 id="Evaluate-a-infix-expression"><a href="#Evaluate-a-infix-expression" class="headerlink" title="Evaluate a infix expression"></a>Evaluate a infix expression</h2><p>Infix expression: <code>Operand1 op Operand2</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Stacks: ops, values</span><br><span class="line">While (we have not reached the end of s)</span><br><span class="line">	If an operand is found</span><br><span class="line">		Push it onto the stack: values</span><br><span class="line">	End-If</span><br><span class="line">	If a left parenthesis is found</span><br><span class="line">		Push it onto the stack: ops</span><br><span class="line">	End-If</span><br><span class="line">	If a right parenthesis is found</span><br><span class="line">		While (the stack: ops is not empty AND the top item is not a left parenthesis)</span><br><span class="line">			Pop the stack: ops and add the popped value to stack: values</span><br><span class="line">	End-If</span><br><span class="line">	If an operator is found</span><br><span class="line">		While (the stack is not empty AND the top of the stack is not a left parenthesis AND precedence of the operator &lt;= precedence of the top of the stack)</span><br><span class="line">			Pop the stack: ops and add the top value to stack: values</span><br><span class="line">		End-While</span><br><span class="line">		Push the latest operator onto the stack: ops</span><br><span class="line">	End-If</span><br><span class="line">End-While</span><br><span class="line"></span><br><span class="line">While (the stack is not empty)</span><br><span class="line">	Pop the stack and add the popped value to stack: values;</span><br><span class="line">End-While</span><br><span class="line">Pop the stack (this is the final value)</span><br></pre></td></tr></table></figure></p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a href="http://faculty.cs.niu.edu/~hutchins/csci241/eval.htm" target="_blank" rel="external">http://faculty.cs.niu.edu/~hutchins/csci241/eval.htm</a></li>
-<li><a href="https://algs4.cs.princeton.edu/lectures/13StacksAndQueues-2x2.pdf" target="_blank" rel="external">https://algs4.cs.princeton.edu/lectures/13StacksAndQueues-2x2.pdf</a></li>
+<li><a href="http://faculty.cs.niu.edu/~hutchins/csci241/eval.htm" target="_blank" rel="noopener">http://faculty.cs.niu.edu/~hutchins/csci241/eval.htm</a></li>
+<li><a href="https://algs4.cs.princeton.edu/lectures/13StacksAndQueues-2x2.pdf" target="_blank" rel="noopener">https://algs4.cs.princeton.edu/lectures/13StacksAndQueues-2x2.pdf</a></li>
 </ul>
 
       
@@ -386,6 +387,8 @@
     <footer class="post-footer">
       
         <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
           
             <a href="/tags/stack/" rel="tag"># stack</a>
           
@@ -484,7 +487,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -495,7 +498,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -506,7 +509,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

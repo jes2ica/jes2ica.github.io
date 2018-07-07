@@ -100,7 +100,8 @@
 <meta property="og:url" content="http://jes2ica.github.io/2017/09/09/binary-search/index.html">
 <meta property="og:site_name" content="Jes2ica.IO">
 <meta property="og:description" content="ProblemGiven an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher’s h-index (citations array is sorted in ascending order). Accor">
-<meta property="og:updated_time" content="2018-03-29T03:07:20.228Z">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-03-29T03:07:20.229Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Binary Search">
 <meta name="twitter:description" content="ProblemGiven an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher’s h-index (citations array is sorted in ascending order). Accor">
@@ -356,7 +357,7 @@
 <p>According to the definition of h-index on Wikipedia: “A scientist has index h if h of his/her N papers have at least h citations each, and the other N − h papers have no more than h citations each.”</p>
 <p>For example, given citations = [3, 0, 6, 1, 5], which means the researcher has 5 papers in total and each of them had received 3, 0, 6, 1, 5 citations respectively. Since the researcher has 3 papers with at least 3 citations each and the remaining two with no more than 3 citations each, his h-index is 3.</p>
 <p>Note: If there are several possible values for h, the maximum one is taken as the h-index.</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public int hIndex(int[] citations) &#123;</div><div class="line">    int left = 0, right = citations.length;</div><div class="line">    // For case &quot;[0]&quot;, left = right.</div><div class="line">    while (left &lt;= right) &#123;</div><div class="line">        int mid = left + (right - left) / 2;</div><div class="line">        if (citations.length - mid &gt; citations[mid]) &#123;</div><div class="line">            // Move left pointer.</div><div class="line">            left = mid + 1;</div><div class="line">        &#125; else &#123;</div><div class="line">            right = mid;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return citations.length - left;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public int hIndex(int[] citations) &#123;</span><br><span class="line">    int left = 0, right = citations.length;</span><br><span class="line">    // For case &quot;[0]&quot;, left = right.</span><br><span class="line">    while (left &lt;= right) &#123;</span><br><span class="line">        int mid = left + (right - left) / 2;</span><br><span class="line">        if (citations.length - mid &gt; citations[mid]) &#123;</span><br><span class="line">            // Move left pointer.</span><br><span class="line">            left = mid + 1;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            right = mid;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return citations.length - left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><p><code>Arrays.binarySearch()</code> returns a negative value that is equivalent to <code>-[insertion point] - 1</code>, where insertion point is defined as the index at which the search key would be inserted into the array or list.</p>
 
       
@@ -486,7 +487,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -497,7 +498,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -508,7 +509,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
