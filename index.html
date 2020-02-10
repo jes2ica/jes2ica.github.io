@@ -264,6 +264,221 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="www.zhuangyijie.com/2020/02/09/system-r/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yijie Zhuang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jes2ica.IO">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/09/system-r/" itemprop="url">A History and Evaluation of System R</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-09T16:15:44-08:00">
+                2020-02-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/paper/" itemprop="url" rel="index">
+                    <span itemprop="name">paper</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Link: <a href="http://web.stanford.edu/class/cs245/readings/system-r-history-evaluation.pdf" target="_blank" rel="noopener">A History and Evaluation of System R</a></p>
+<h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><ul>
+<li>Demonstrate the advantages of relational data model</li>
+<li>Describe 3 principle phases of the System R</li>
+</ul>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ul>
+<li>Trends: data independence - immunity of applications to change in storage structure and access strategy</li>
+<li>Relational data model: Proposed by E.F. Codd, store information in two ways:<ul>
+<li>by the contents of records stored in the database</li>
+<li>by the ways in which these records are connected together</li>
+</ul>
+</li>
+<li>Two properties:<ul>
+<li>all information is represented by data values</li>
+<li>the system supports a very high-level language</li>
+</ul>
+</li>
+</ul>
+<h1 id="Phase-0"><a href="#Phase-0" class="headerlink" title="Phase 0"></a>Phase 0</h1><ul>
+<li>Relational access method: XRM.</li>
+<li>XRM stores relations in the form of “tuples”, each of which has a unique 32-bit “tuple identifier”: TID.</li>
+<li>The most challenging task: design of optimizer algorithms for efficient execution of SQL statements on top of XRM. =&gt; optimizer made extensive use of inversions</li>
+<li>Demonstrated the usability of SQL.</li>
+<li>Pros &amp; Cons:<ul>
+<li>Pros: fast w/ finding distinct jobs</li>
+<li>Cons:<ul>
+<li>Too many I/Os For each tuple, look up all its fields</li>
+<li>Use “inversions” to find TIDs with a given value for a field</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Lessons learned:<ul>
+<li>The optimizer should take into account not just the cost of fetching tuples, but the costs of creating and manipulating TID lists.</li>
+<li>A better measure of cost would have been number of “I/Os”.</li>
+<li>Cost measure should be a weighted sum of CPU time and I/O count.</li>
+<li>Importance of “join”</li>
+<li>Simpler interaction, minimize the “path length” for simple SQL statements.</li>
+</ul>
+</li>
+</ul>
+<h1 id="Phase-1-B-Tree"><a href="#Phase-1-B-Tree" class="headerlink" title="Phase 1: B-Tree"></a>Phase 1: B-Tree</h1><ul>
+<li>Assess method: Research Storage System (RSS)<ul>
+<li>Store data in the individual records of the database.</li>
+<li>Pros: all the data value of a record could be fetched by a single I/O.</li>
+<li>B-tree indexes.</li>
+</ul>
+</li>
+<li>Optimizing SQL processor: Relational Data System (RDS)</li>
+<li>Subsystems:<ul>
+<li>View &amp; Authorization subsystem<ul>
+<li>View definition in the form of an SQL parse tree.</li>
+<li>Authorization is based on privileges, controlled by GRANT and REVOKE.</li>
+</ul>
+</li>
+<li>Recovery subsystem<ul>
+<li>Media(disk) failure: image dump + change log.</li>
+<li>System failure: change log + shadow pages.<ul>
+<li>Why do we need both shadow pages and change logs?<ul>
+<li>You may need log for transaction replay</li>
+<li>You can only have log because shadow mechanism is quite expensive for large logs</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Transaction failure: process the change log backwards.</li>
+</ul>
+</li>
+<li>Locking subsystem<ul>
+<li>“predicate locks” (abandoned)<ul>
+<li>determine whether predicates are satisfiable are difficult and time-consuming</li>
+<li>two predicates may appear to conflict</li>
+</ul>
+</li>
+<li>hierarchy of locks (used by MySQL)</li>
+<li>“intention” locks</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>References<br><a href="https://marcoma.xyz/2019/04/10/system_r_ibm_reading/" target="_blank" rel="noopener">https://marcoma.xyz/2019/04/10/system_r_ibm_reading/</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="www.zhuangyijie.com/2018/12/07/last-month-of-2018/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1672,140 +1887,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="www.zhuangyijie.com/2018/01/04/2018-plan/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yijie Zhuang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jes2ica.IO">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/04/2018-plan/" itemprop="url">Hello 2018</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-04T22:04:44-08:00">
-                2018-01-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index">
-                    <span itemprop="name">life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>“May your choices reflect your hopes, not your fears.”</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1853,7 +1934,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1864,7 +1945,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -1875,7 +1956,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
