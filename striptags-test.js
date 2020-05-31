@@ -12,7 +12,7 @@ describe('striptags', function() {
     });
 
     it('should remove simple HTML tags', function() {
-        var html = '<a href>lorem <strong>ipsum</strong></a>',
+        var html = '<a href="">lorem <strong>ipsum</strong></a>',
             text = 'lorem ipsum';
 
         assert.equal(striptags(html), text);
@@ -26,7 +26,7 @@ describe('striptags', function() {
     });
 
     it('should leave attributes when allowing HTML', function() {
-        var html = '<a href="https://example.com" target="_blank" rel="noopener">lorem ipsum</a>',
+        var html = '<a href="https://example.com">lorem ipsum</a>',
             allowedTags = '<a>';
 
         assert.equal(striptags(html, allowedTags), html);
@@ -71,7 +71,7 @@ describe('striptags', function() {
     });
 
     it('should strip extra < within tags', function() {
-        var html = '<div<>>lorem ipsum</div<></a></div>',
+        var html = '<div<>>lorem ipsum</div>',
             strippedHtml = '<div>lorem ipsum</div>',
             allowedTags = '<div>';
 
@@ -122,7 +122,7 @@ describe('striptags', function() {
     });
 
     it('should strip the tag\'s properties and attributes', function() {
-        var html = '<a href="http://google.com" title="foo" data-id="0" target="_blank" rel="noopener">Click here</a>',
+        var html = '<a href="http://google.com" title="foo" data-id="0">Click here</a>',
             allowedTags = [],
             text = 'Click here';
 
@@ -138,4 +138,3 @@ describe('striptags', function() {
         assert.equal(striptags(html, allowedTags, tagReplacement), text);
     });
 });
-</div></strong></a></strong>

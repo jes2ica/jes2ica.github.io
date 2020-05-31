@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>Resilient Distributed Datasets | Jes2ica.IO</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Jes2ica.IO"><meta name="msapplication-starturl" content="www.zhuangyijie.com"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Jes2ica.IO"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Resilient Distributed Datasets | Jes2ica.IO"><meta property="og:site_name" content="Jes2ica.IO"><meta property="og:type" content="article"><meta property="og:url" content="www.zhuangyijie.com/2020/05/27/rdd/"><meta property="og:locale" content="en"><meta name="description" content="I took CS 245 in this January which was taught by Matei Zaharia, the creator of Apache Spark. Recently, I need to use Spark for my project, so I revisited this paper: Resilient Distributed Datasets: A - Yijie Zhuang - Jes2ica.IO"><meta property="article:published_time" content="2020-05-28T05:15:55.000Z"><meta property="article:modified_time" content="2020-05-31T03:35:50.118Z"><meta property="og:updated_time" content="2020-05-31T03:35:50.118Z"><meta property="article:author" content="Yijie Zhuang"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="www.zhuangyijie.com/2020/05/27/rdd/">
+
+    <meta name="generator" content="Hexo 4.2.1">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "www.zhuangyijie.com/2020/05/27/rdd/",
+    "@type": "BlogPosting",
+    "logo": "www.zhuangyijie.com/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "www.zhuangyijie.com/2020/05/27/rdd/"
+    },
+    "headline": "Resilient Distributed Datasets | Jes2ica.IO",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "www.zhuangyijie.com/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2020-05-28T05:15:55.000Z",
+    "dateModified": "2020-05-31T03:35:50.118Z",
+    "author": {
+        "@type": "Person",
+        "name": "Yijie Zhuang",
+        "image": {
+            "@type": "ImageObject",
+            "url": "www.zhuangyijie.com/img/default_avatar.png"
+        },
+        "description": "coding, trading, reading"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Jes2ica.IO",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "www.zhuangyijie.com/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "www.zhuangyijie.com/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "",
+    "description": "I took CS 245 in this January which was taught by Matei Zaharia, the creator of Apache Spark. Recently, I need to use Spark for my project, so I revisited this paper: Resilient Distributed Datasets: A - Yijie Zhuang - Jes2ica.IO"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Jes2ica.IO</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                coding, trading, reading
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+        <a href="/about/" class="navbar-link">About</a>
+    
+        <a href="/gallery/" class="navbar-link">Gallery</a>
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Resilient Distributed Datasets</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Yijie Zhuang's Avatar">
+        <span>2020-05-27</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/paper/">paper</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Resilient Distributed Datasets&url=www.zhuangyijie.com/2020/05/27/rdd/&pic=www.zhuangyijie.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Resilient Distributed Datasets&url=www.zhuangyijie.com/2020/05/27/rdd/&via=Yijie Zhuang" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=www.zhuangyijie.com/2020/05/27/rdd/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=www.zhuangyijie.com/2020/05/27/rdd/&title=Jes2ica.IO" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=www.zhuangyijie.com/2020/05/27/rdd/&text=Jes2ica.IO" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAAAAAB0L9x7AAABi0lEQVR42u3aSY7DMAxEUd//0p1VgIZhFovKoHLwvQk6iZW3YEscfPwFXAcIECBugTjE9fz8/L3zvf//dtcFkY24DBrx41eAq/vUuiDyEVVAdkGnvtOtC+KeiPN7VTBe3QfiNxFdkF4dViB+AyEPmmITcu95+RQF8XWEm+hOXz+SbYP4OKItWovNqwJXAflSVQ7iqwiVvKgNp0OopBdENsIpZlVRVCUuy5sViO0IN2mtDio3GbY2KxARCKdBooBOUJdQEJGIbvNxGurugWf/d4DYinACUR1mXdGk1gORi3CSVxWUk8AFkY/ohifOQGW1oQYiE6GaXu7QRQ3oRpkViBhEt6jbTHMHtCCyEW6DXB1Q08ELiGxE10DrHvZyHwAZD11AbEWs/KgKxi5hBpGPWA3SSVC2iS6IGIQ7sF/dsGQDFkQsYjKUc4rktzTYQWxHTJuhVcNs8oAHiHsiuuJIFrxNYw3EfRFuYTxuyoKIRnSH02oASySIWMTKg8IOdpTUgIhB7LxAgAARjXgA+LkIR9CW+xMAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                    
+                    <article id="post-content">
+                        <p>I took CS 245 in this January which was taught by Matei Zaharia, the creator of Apache Spark. Recently, I need to use Spark for my project, so I revisited this paper: <a href="http://web.stanford.edu/class/cs245/readings/system-r-history-evaluation.pdf" target="_blank" rel="noopener">Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing </a>. Here are some notes:</p>
+<ul>
+<li>Resilient Distributed Datasets (RDD):<ul>
+<li>Read-only, partitioned collection of records.</li>
+<li>Can be only created through deterministic operations on either<br>(1) data in stable storage or (2) other RDDs. [Transformation - map, filter, join]</li>
+<li>User can control: (1) persistence (2) partitioning.</li>
+</ul>
+</li>
+<li>Life of a RDDs:<ul>
+<li>Creation (through coarse-grained transformations)</li>
+<li>Perform actions (e.g. count, collect)</li>
+<li>Persist (in memory or disk)</li>
+</ul>
+</li>
+<li>Advantages:<ul>
+<li>RDDs do not need to incur the overhead of <code>checkpointing</code>, as they can be recovered using <code>lineage</code>. Only the lost partitions of an RDD need to be recomputed upon failure, and they can be recomputed in parallel on different nodes, without having to roll back the whole program.</li>
+<li>Its immutable nature lets a system mitigate slow nodes by running backup copies of slow tasks.</li>
+<li>In bulk operations, a runtime can schedule tasks based on data locality to improve performance.</li>
+<li>RDDs degrade gracefully when there is not enough memory to store them, can be stored on disk.</li>
+</ul>
+</li>
+<li>Applications:<ul>
+<li>batch operations that apply the same operation to all elements (not suitable for applications that make aync fine-grained updates)</li>
+</ul>
+</li>
+<li>Usage: Write driver program that connects to a cluster of workers<ul>
+<li>Driver: defines one or more RDDs, tracks the RDDs’ lineage.</li>
+<li>Worker: long-lived processes that can store RDD partitions in RAM across operations.</li>
+<li>Users provide arguments to RDD operations like map by passing closures (function literals)<ul>
+<li>Scala represents each closure as a Java object</li>
+<li>The object can be serialized and loaded on another node to pass the closure across the network.</li>
+<li>Variables bound in the closure as fields in the object</li>
+</ul>
+</li>
+<li>During execution:<ul>
+<li>Driver finds variables attached to closure, wraps them into an object, then serializes the object.</li>
+<li>The object will then be passed to worker nodes.</li>
+<li>Worker deserializes and executes.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Example applications:<ul>
+<li>Logistic Regression</li>
+<li>PageRank</li>
+</ul>
+</li>
+<li>Representing RDDs<ul>
+<li>Common interface w/ 5 pieces of information:<ul>
+<li>partitions()</li>
+<li>preferredLocations(p)</li>
+<li>dependencies()</li>
+<li>iterator(p, parentIters)</li>
+<li>partitioner()</li>
+</ul>
+</li>
+<li>Dependencies:<ul>
+<li>Narrow v.s. Wide: whether each parition of the parent RDD is used by at most one partition of the child RDD.</li>
+<li>Differences:<ul>
+<li>Narrow dependencies allow for pipelined execution on one cluster node.</li>
+<li>Recovery after a node failure is more efficient with a narrow dependency.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Implementation</li>
+</ul>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2020-05-30");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2020-05-28T05:15:55.000Z" itemprop="datePublished">2020-05-27</time>
+
+    , Updated at&nbsp;<time datetime="2020-05-31T03:35:50.118Z" itemprop="dateModified">2020-05-30</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/paper/'>paper</a>
+
+</span>
+
+
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2020/02/10/compression-column-oriented-database/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Column-Oriented Database Systems</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="www.zhuangyijie.com">Jes2ica.IO</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>
