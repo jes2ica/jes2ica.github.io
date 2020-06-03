@@ -152,7 +152,7 @@
     <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Jes2ica.IO"><meta name="msapplication-starturl" content="www.zhuangyijie.com"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Jes2ica.IO"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="Resilient Distributed Datasets | Jes2ica.IO"><meta property="og:site_name" content="Jes2ica.IO"><meta property="og:type" content="article"><meta property="og:url" content="www.zhuangyijie.com/2020/05/27/rdd/"><meta property="og:locale" content="en"><meta name="description" content="I took CS 245 in this January which was taught by Matei Zaharia, the creator of Apache Spark. Recently, I need to use Spark for my project, so I revisited this paper: Resilient Distributed Datasets: A - Yijie Zhuang - Jes2ica.IO"><meta property="article:published_time" content="2020-05-28T05:15:55.000Z"><meta property="article:modified_time" content="2020-05-31T03:35:50.118Z"><meta property="og:updated_time" content="2020-05-31T03:35:50.118Z"><meta property="article:author" content="Yijie Zhuang"><meta name="twitter:card" content="summary">
+    <meta property="og:title" content="Resilient Distributed Datasets | Jes2ica.IO"><meta property="og:site_name" content="Jes2ica.IO"><meta property="og:type" content="article"><meta property="og:url" content="www.zhuangyijie.com/2020/05/27/rdd/"><meta property="og:locale" content="en"><meta name="description" content="I took CS 245 in this January which was taught by Matei Zaharia, the creator of Apache Spark. Recently, I need to use Spark for my project, so I revisited this paper: Resilient Distributed Datasets: A - Yijie Zhuang - Jes2ica.IO"><meta property="article:published_time" content="2020-05-28T05:15:55.000Z"><meta property="article:modified_time" content="2020-05-31T23:22:13.437Z"><meta property="og:updated_time" content="2020-05-31T23:22:13.437Z"><meta property="article:author" content="Yijie Zhuang"><meta name="twitter:card" content="summary">
 
     
 
@@ -193,7 +193,7 @@
     },
     
     "datePublished": "2020-05-28T05:15:55.000Z",
-    "dateModified": "2020-05-31T03:35:50.118Z",
+    "dateModified": "2020-05-31T23:22:13.437Z",
     "author": {
         "@type": "Person",
         "name": "Yijie Zhuang",
@@ -431,7 +431,41 @@
 </li>
 </ul>
 </li>
-<li>Implementation</li>
+<li>Implementation<ul>
+<li>Job scheduling:<ul>
+<li>Similar to Dryad’s but consider which RDDs are available in memory.</li>
+<li>Our scheduler assigns tasks to machines based on data locality using delay scheduling.</li>
+</ul>
+</li>
+<li>Intepreter Integration<ul>
+<li>Class shipping： over http</li>
+<li>Modified code generation: reference the instance of each line directly</li>
+</ul>
+</li>
+<li>Memory Management<ul>
+<li>3 options for storage of persistent RDDs:<ul>
+<li>in-memory storage as deserialized Java objects: fastest performance</li>
+<li>in-memory storage as serialized data: more memory efficient</li>
+<li>on-disk storage: for large RDDs</li>
+</ul>
+</li>
+<li>LRU eviction</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Evaluation<ul>
+<li>Outperforms Hadoop by up to 20x (The speedup comes from avoiding I/O and deserialization costs by storing data in memory as Java objects).</li>
+<li>Can recover quickly by rebuilding only the lost RDD partitions.</li>
+<li>Query a 1TB dataset with 5~7 sec latencies</li>
+</ul>
+</li>
+<li>User applications<ul>
+<li>In-memory Analytics</li>
+<li>Traffic Modeling</li>
+<li>Twitter Spam Classification</li>
+</ul>
+</li>
 </ul>
 
                     </article>
@@ -441,7 +475,7 @@
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
     (function() {
-        var dateUpdate = Date.parse("2020-05-30");
+        var dateUpdate = Date.parse("2020-05-31");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;
@@ -457,7 +491,7 @@
 
 <p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2020-05-28T05:15:55.000Z" itemprop="datePublished">2020-05-27</time>
 
-    , Updated at&nbsp;<time datetime="2020-05-31T03:35:50.118Z" itemprop="dateModified">2020-05-30</time>
+    , Updated at&nbsp;<time datetime="2020-05-31T23:22:13.437Z" itemprop="dateModified">2020-05-31</time>
 
 </p>
 <p class="post-footer-info mb-0 pt-2">
